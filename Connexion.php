@@ -70,7 +70,7 @@ if (isset($_POST["utilisateur"]) && isset($_POST["mot_de_passe"])) {
         $_SESSION["id_utilisateur"] = $utilisateur["id_utilisateur"];
         $_SESSION["nom_utilisateur"] = $utilisateur["nom_utilisateur"];
 
-        header("Location: ./Acceuil.php");
+        header("Location: ./acceuil.php");
         exit();
 
     } else {
