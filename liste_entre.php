@@ -160,6 +160,23 @@ try {
 
     <?php endif; ?>
 
+    <?php if (!empty($entreprise['lettre_motivation_pdf'])): ?>
+
+    <a
+        href="<?= htmlspecialchars(
+            $entreprise['lettre_motivation_pdf']
+        ) ?>"
+        target="_blank"
+    >
+        Voir la lettre de motivation
+    </a>
+
+<?php else: ?>
+
+    <span>Aucune lettre de motivation</span>
+
+<?php endif; ?>
+
 </div>
 
 </body>
