@@ -8,9 +8,10 @@ if (!isset($_SESSION["id_utilisateur"])) {
 }
 
 try {
-    $pdo = new PDO(
-        "sqlite:" . __DIR__ . "/Candiapp.db"
-    );
+
+require_once __DIR__ . "/database.php";
+
+$message = "";
 
     $pdo->setAttribute(
         PDO::ATTR_ERRMODE,

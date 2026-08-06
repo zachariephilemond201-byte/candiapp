@@ -49,7 +49,7 @@
         ]);
 
         echo "Utilisateur créé avec succès!";
-        echo ".<a href='connexion.php'style='text-center'>Se connecter</a>.";
+        echo ".<a href='Connexion.php'style='text-center'>Se connecter</a>.";
     }
     
     
