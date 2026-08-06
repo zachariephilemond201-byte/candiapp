@@ -49,8 +49,7 @@
    <?php
 session_start();
 
-$pdo = new PDO("sqlite:" . __DIR__ . "/Candiapp.db");
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+require_once __DIR__ . "/database.php";
 
 if (isset($_POST["utilisateur"]) && isset($_POST["mot_de_passe"])) {
 

@@ -29,8 +29,7 @@
     </form>
 
     <?php
-    $pdo = new PDO("sqlite:Candiapp.db");
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    require_once __DIR__ . "/database.php";
 
     if(isset($_POST["utilisateur"]) && isset($_POST["mot_de_passe"])){
         $utilisateur = $_POST["utilisateur"];

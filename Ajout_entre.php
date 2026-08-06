@@ -5,8 +5,7 @@ session_start();
 $message = "";
 
 try {
-    $pdo = new PDO("sqlite:" . __DIR__ . "/Candiapp.db");
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+require_once __DIR__ . "/database.php";
 
     if (!isset($_SESSION["id_utilisateur"])) {
         $message = "Erreur : tu dois être connecté.";
