@@ -3,7 +3,7 @@
 session_start();
 
 if (!isset($_SESSION["id_utilisateur"])) {
-    header("Location: connexion.php");
+    header("Location: Connexion.php");
     exit();
 }
 
