@@ -1,0 +1,23 @@
+# Variables et informations sensibles
+.env
+.env.local
+
+# Dépendances PHP
+/vendor/
+
+# Base de données locale
+*.sqlite
+*.sqlite3
+*.db
+
+# Fichiers temporaires
+*.log
+*.tmp
+
+# Éditeurs
+.vscode/
+.idea/
+
+# Système
+.DS_Store
+Thumbs.db

@@ -330,7 +330,7 @@ try {
             value="Ajouter une entreprise"
         >
 
-        <a href="Acceuil.php">
+        <a href="acceuil.php">
             Retour à l'accueil
         </a>
     </form>

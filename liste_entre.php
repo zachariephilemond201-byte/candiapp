@@ -100,7 +100,7 @@ try {
 
 <h1>Liste des entreprises</h1>
 
-<a type="button" href="Acceuil.php">Retour à l'accueil</a>
+<a type="button" href="acceuil.php">Retour à l'accueil</a>
 
 <div class="conteneur">
 
