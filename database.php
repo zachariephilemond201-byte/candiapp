@@ -2,7 +2,7 @@
 
 try {
     $pdo = new PDO(
-        "pgsql:host=localhost;port=5432;dbname=candiapp",
+        "pgsql:host=db;port=5432;dbname=candiapp",
         "candiapp_user",
         "Surlex74"
     );
