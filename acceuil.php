@@ -54,7 +54,7 @@ if (isset($_POST["deconnexion"])) {
 
 
 <body>
-    <h1>Bienvenue sur notre application, <?php session_start(); echo $_SESSION['nom_utilisateur']; ?></h1>
+    <h1>Bienvenue sur notre application, <?php echo $_SESSION['nom_utilisateur']; ?></h1>
     <div class="cont" method="post">
         <a href="Ajout_entre.php" class="btn">Ajouter une entreprise</a>
         <a href="liste_entre.php" class="btn">Voir vos entreprises</a>
