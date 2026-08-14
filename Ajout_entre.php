@@ -74,6 +74,12 @@ require_once __DIR__ . "/database.php";
                
             }
              $contenuPdf = base64_encode($contenuPdf);
+             
+             var_dump(substr($contenuPdf, 0, 20));
+             var_dump(strlen($contenuPdf));
+             var_dump(preg_match('/^[A-Za-z0-9+\/]*={0,2}$/', $contenuPdf));
+             var_dump(strpos($contenuPdf, "\xB5"));
+             exit();
 
             $sql = "
                 INSERT INTO entreprise (
