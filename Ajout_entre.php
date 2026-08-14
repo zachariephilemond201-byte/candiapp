@@ -78,7 +78,7 @@ require_once __DIR__ . "/database.php";
                     nom_entreprise,
                     adresse,
                     date_envoi,
-                    statut_candidature,
+                    statut_canditature,
                     commentaire_candidature,
                     nom_lettre_motivation,
                     lettre_motivation_pdf,
