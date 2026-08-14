@@ -71,6 +71,7 @@ require_once __DIR__ . "/database.php";
                 throw new Exception(
                     "Impossible de lire le fichier PDF."
                 );
+                $contenuPdf = base64_encode($contenuPdf);
             }
 
             $sql = "
@@ -91,7 +92,7 @@ require_once __DIR__ . "/database.php";
                     :statut,
                     :note,
                     :nom_pdf,
-                    :contenu_pdf,
+                    decode(:contenu_pdf, 'base64'),
                     :utilisateur_id
                 )
             ";
@@ -138,7 +139,7 @@ require_once __DIR__ . "/database.php";
             $stmt->bindValue(
                 ":contenu_pdf",
                 $contenuPdf,
-                PDO::PARAM_LOB
+                 PDO::PARAM_STR
             );
 
             $stmt->bindValue(
