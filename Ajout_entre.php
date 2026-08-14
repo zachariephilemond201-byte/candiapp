@@ -30,9 +30,7 @@ require_once __DIR__ . "/database.php";
 
             $id_utilisateur = $_SESSION["id_utilisateur"];
 
-            /*
-             * Vérification de la lettre de motivation.
-             */
+            
             if (
                 !isset($_FILES["lettre_motivation"]) ||
                 $_FILES["lettre_motivation"]["error"] !== UPLOAD_ERR_OK
@@ -44,9 +42,7 @@ require_once __DIR__ . "/database.php";
 
             $fichier = $_FILES["lettre_motivation"];
 
-            /*
-             * Taille maximale : 5 Mo.
-             */
+            
             $tailleMaximale = 5 * 1024 * 1024;
 
             if ($fichier["size"] > $tailleMaximale) {
@@ -55,10 +51,7 @@ require_once __DIR__ . "/database.php";
                 );
             }
 
-            /*
-             * Vérification du véritable type du fichier.
-             * On ne vérifie pas uniquement son extension.
-             */
+            
             $finfo = new finfo(FILEINFO_MIME_TYPE);
             $typeMime = $finfo->file($fichier["tmp_name"]);
 
@@ -68,15 +61,10 @@ require_once __DIR__ . "/database.php";
                 );
             }
 
-            /*
-             * Nom original du fichier.
-             */
+        
             $nomPdf = basename($fichier["name"]);
 
-            /*
-             * Lecture complète du PDF.
-             * Son contenu sera enregistré dans SQLite.
-             */
+            
             $contenuPdf = file_get_contents($fichier["tmp_name"]);
 
             if ($contenuPdf === false) {
@@ -89,7 +77,7 @@ require_once __DIR__ . "/database.php";
                 INSERT INTO entreprise (
                     nom_entreprise,
                     adresse,
-                    date_envoie,
+                    date_envoi,
                     statut_candidature,
                     commentaire_candidature,
                     nom_lettre_motivation,
@@ -146,10 +134,7 @@ require_once __DIR__ . "/database.php";
                 PDO::PARAM_STR
             );
 
-            /*
-             * PDO::PARAM_LOB permet d'enregistrer
-             * le contenu binaire du PDF.
-             */
+           
             $stmt->bindValue(
                 ":contenu_pdf",
                 $contenuPdf,
@@ -257,10 +242,7 @@ require_once __DIR__ . "/database.php";
 
 <body>
 
-    <!--
-        enctype="multipart/form-data" est obligatoire
-        pour envoyer un fichier à PHP.
-    -->
+    
     <form
         method="post"
         enctype="multipart/form-data"
@@ -357,16 +339,12 @@ require_once __DIR__ . "/database.php";
             "nomFichier"
         );
 
-        /*
-         * Cliquer sur la zone ouvre l'explorateur de fichiers.
-         */
+        
         zoneDepot.addEventListener("click", function () {
             inputFichier.click();
         });
 
-        /*
-         * Permet également d'utiliser Entrée ou Espace.
-         */
+        
         zoneDepot.addEventListener("keydown", function (event) {
             if (
                 event.key === "Enter" ||
@@ -399,10 +377,7 @@ require_once __DIR__ . "/database.php";
 
             const fichier = fichiers[0];
 
-            /*
-             * Cette vérification JavaScript est pratique,
-             * mais PHP vérifiera également le fichier.
-             */
+            
             if (
                 fichier.type !== "application/pdf" &&
                 !fichier.name.toLowerCase().endsWith(".pdf")
@@ -411,9 +386,7 @@ require_once __DIR__ . "/database.php";
                 return;
             }
 
-            /*
-             * On place le fichier glissé dans l'input file.
-             */
+            
             const transfert = new DataTransfer();
             transfert.items.add(fichier);
 
