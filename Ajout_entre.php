@@ -71,8 +71,9 @@ require_once __DIR__ . "/database.php";
                 throw new Exception(
                     "Impossible de lire le fichier PDF."
                 );
-                $contenuPdf = base64_encode($contenuPdf);
+               
             }
+             $contenuPdf = base64_encode($contenuPdf);
 
             $sql = "
                 INSERT INTO entreprise (
