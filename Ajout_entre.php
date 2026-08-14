@@ -100,23 +100,6 @@ require_once __DIR__ . "/database.php";
 
 
 
-
-            echo "<pre>";
-
-            var_dump(substr($contenuPdf, 0, 20));
-            var_dump(strlen($contenuPdf));
-
-            var_dump(
-                preg_match(
-                    '/^[A-Za-z0-9+\/]*={0,2}$/',
-                    $contenuPdf
-                )
-            );
-
-            var_dump(strpos($contenuPdf, "\xB5"));
-
-            exit();
-
             $stmt = $pdo->prepare($sql);
 
             $stmt->bindValue(
