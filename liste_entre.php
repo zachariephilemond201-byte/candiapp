@@ -135,7 +135,7 @@ $message = "";
                     <span class="titre">Date :</span>
 
                     <?= htmlspecialchars(
-                        $entreprise["date_envoie"]
+                        $entreprise["date_envoi"]
                     ) ?>
                 </div>
 
@@ -143,7 +143,7 @@ $message = "";
                     <span class="titre">Statut :</span>
 
                     <?= htmlspecialchars(
-                        $entreprise["statut_candidature"]
+                        $entreprise["statut_canditature"]
                     ) ?>
                 </div>
 
