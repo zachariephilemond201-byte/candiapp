@@ -81,7 +81,7 @@ require_once __DIR__ . "/database.php";
                     statut_canditature,
                     commentaire_candidature,
                     nom_lettre_motivation,
-                    lettre_motivation_pdf,
+                    lettre_entreprise_pdf,
                     utilisateur_id
                 )
                 VALUES (
