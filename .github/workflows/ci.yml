@@ -1,0 +1,38 @@
+name: CI Candiapp
+
+on: 
+  push:
+    branches:
+      - main
+
+
+  pull_request:
+    branches:
+      - main
+
+permission:
+  contents: read
+
+
+jobs:
+  verifacation:
+
+    runs-on: ubuntu-24.04
+
+    steps:
+
+      - name: Recuperer le projet
+        uses: actions/checkout@v6
+
+      - name: Verifier la version de PHP
+        run: php --version
+
+      - name: Verifier la syntaxe PHP
+        run: |
+          find . -type f -name "*.php" -not -path "./vendor/*" -print0 | xargs -0 -n1 php -1
+
+      - name: Verifier Docker Compose
+        run: docker compose config
+
+      - name: Construire les conteneurs
+        run: docker compose build
