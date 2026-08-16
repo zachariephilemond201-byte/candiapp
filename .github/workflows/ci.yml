@@ -10,7 +10,7 @@ on:
     branches:
       - main
 
-permission:
+permissions:
   contents: read
 
 
