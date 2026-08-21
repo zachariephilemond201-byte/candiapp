@@ -20,9 +20,17 @@ $message = "";
 
    
     $sql = "
-        SELECT *
-        FROM entreprise
-        WHERE utilisateur_id = :utilisateur_id
+       SELECT
+    id_entreprise,
+    nom_entreprise,
+    adresse,
+    date_envoi,
+    statut_canditature,
+    commentaire_candidature,
+    nom_lettre_motivation,
+    (lettre_entreprise_pdf IS NOT NULL) AS lettre_disponible
+FROM entreprise
+WHERE utilisateur_id = :utilisateur_id
     ";
 
     $stmt = $pdo->prepare($sql);
@@ -94,6 +102,11 @@ $message = "";
         margin-top: 220px;
     }
 
+    .lettre-pdf {
+    display: inline;
+    margin-top: 0;
+    }
+
     </style>
 </head>
 
@@ -155,13 +168,30 @@ $message = "";
                     ) ?>
                 </div>
 
+                <div class="ligne">
+                    <span class="titre">Lettre de motivation :</span>
+
+                    <?php if ($entreprise["lettre_disponible"]) : ?>
+
+                        <a
+                            class="lettre-pdf"
+                            href="voir_lettre.php?id=<?= (int) $entreprise["id_entreprise"] ?>"
+                            target="_blank"
+                        >
+                            ✅ Lettre de motivation validée — Voir le PDF
+                         </a>
+
+                <?php else : ?>
+
+                        <span>Aucune lettre de motivation</span>
+
+                <?php endif; ?>
+            </div>
+
             </div>
 
         <?php endforeach; ?>
 
-    <?php endif; ?>
-
-    <?php if (!empty($entreprise['lettre_motivation_pdf'])): ?>
 
     <a
         href="<?= htmlspecialchars(
