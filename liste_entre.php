@@ -191,24 +191,8 @@ WHERE utilisateur_id = :utilisateur_id
             </div>
 
         <?php endforeach; ?>
-
-
-    <a
-        href="<?= htmlspecialchars(
-            $entreprise['lettre_motivation_pdf']
-        ) ?>"
-        target="_blank"
-    >
-        Voir la lettre de motivation
-    </a>
-
-<?php else: ?>
-
-    <span>Aucune lettre de motivation</span>
-
-<?php endif; ?>
-
-</div>
+        
+    <?php endif; ?>
 
 </body>
 </html>
